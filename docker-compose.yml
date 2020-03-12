@@ -8,6 +8,7 @@ services:
     volumes:
       - .:/app
     environment:
+      NODE_ENV: ${NODE_ENV}
       SERVER_PORT: ${SERVER_PORT}
       CLIENT_URL: ${CLIENT_URL}
       MONGO_HOST: ${MONGO_HOST}
@@ -15,8 +16,13 @@ services:
       MONGO_DATABASE: ${MONGO_DATABASE}
       MONGO_USERNAME: ${MONGO_USERNAME}
       MONGO_PASSWORD: ${MONGO_PASSWORD}
+      BLOCK_CYPHER_COIN: ${BLOCK_CYPHER_COIN}
+      BLOCK_CYPHER_CHAIN: ${BLOCK_CYPHER_CHAIN}
+      BLOCK_CYPHER_TOKEN: ${BLOCK_CYPHER_TOKEN}
     ports:
       - '${SERVER_PORT}:${SERVER_PORT}'
+    depends_on:
+      - mongo
 
   mongo:
     container_name: 'token-asset-mongo'

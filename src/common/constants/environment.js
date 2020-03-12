@@ -6,3 +6,6 @@ export const MONGO_PORT = process.env.MONGO_PORT; // MongoDB 포트 번호
 export const MONGO_DATABASE = process.env.MONGO_DATABASE; // MongoDB DB 이름
 export const MONGO_USERNAME = process.env.MONGO_USERNAME; // MongoDB 사용자 이름
 export const MONGO_PASSWORD = process.env.MONGO_PASSWORD; // MongoDB 암호
+export const BLOCK_CYPHER_COIN = process.env.BLOCK_CYPHER_COIN;
+export const BLOCK_CYPHER_CHAIN = process.env.BLOCK_CYPHER_CHAIN;
+export const BLOCK_CYPHER_TOKEN = process.env.BLOCK_CYPHER_TOKEN;

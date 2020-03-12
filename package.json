@@ -9,6 +9,7 @@
     "start": "pm2-runtime start ecosystem.config.js"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "bigi": "latest",
     "bitcoinjs-lib": "3.3.2",
     "cors": "^2.8.5",
