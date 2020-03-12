@@ -1,0 +1,34 @@
+version: '3'
+services:
+  server:
+    container_name: 'token-asset-server'
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    volumes:
+      - .:/app
+    environment:
+      SERVER_PORT: ${SERVER_PORT}
+      CLIENT_URL: ${CLIENT_URL}
+      MONGO_HOST: ${MONGO_HOST}
+      MONGO_PORT: ${MONGO_PORT}
+      MONGO_DATABASE: ${MONGO_DATABASE}
+      MONGO_USERNAME: ${MONGO_USERNAME}
+      MONGO_PASSWORD: ${MONGO_PASSWORD}
+    ports:
+      - '${SERVER_PORT}:${SERVER_PORT}'
+
+  mongo:
+    container_name: 'token-asset-mongo'
+    image: mongo:latest
+    volumes:
+      - ./data/mongo:/data/db
+      - ./mongo/:/docker-entrypoint-initdb.d/
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE}
+      MONGO_INITDB_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_PASSWORD: ${MONGO_PASSWORD}
+    ports:
+      - '${MONGO_PORT}:${MONGO_PORT}'
