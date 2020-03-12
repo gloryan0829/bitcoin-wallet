@@ -1,0 +1,69 @@
+{
+  "family": "token-asset-bitcoin",
+  "taskRoleArn": "arn:aws:iam::516484627364:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::516484627364:role/ecsTaskExecutionRole",
+  "networkMode": null,
+  "requiresCompatibilities": ["EC2"],
+  "cpu": null,
+  "memory": null,
+  "containerDefinitions": [
+    {
+      "name": "bitcoin-wallet-server",
+      "cpu": 0,
+      "memory": null,
+      "memoryReservation": 450,
+      "portMappings": [
+        {
+          "containerPort": 3100,
+          "hostPort": 0,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "NODE_ENV",
+          "value": "development"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "SERVER_PORT",
+          "valueFrom": "TOKEN_ASSET_SERVER_PORT_DEV"
+        },
+        {
+          "name": "CLIENT_URL",
+          "valueFrom": "TOKEN_ASSET_CLIENT_URL_DEV"
+        },
+        {
+          "name": "MONGO_HOST",
+          "valueFrom": "TOKEN_ASSET_MONGO_HOST_DEV"
+        },
+        {
+          "name": "MONGO_PORT",
+          "valueFrom": "TOKEN_ASSET_MONGO_PORT_DEV"
+        },
+        {
+          "name": "MONGO_DATABASE",
+          "valueFrom": "TOKEN_ASSET_MONGO_DATABASE_DEV"
+        },
+        {
+          "name": "MONGO_USERNAME",
+          "valueFrom": "TOKEN_ASSET_MONGO_USERNAME_DEV"
+        },
+        {
+          "name": "MONGO_PASSWORD",
+          "valueFrom": "TOKEN_ASSET_MONGO_PASSWORD_DEV"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/bitcoin-wallet-server",
+          "awslogs-region": "ap-northeast-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}
