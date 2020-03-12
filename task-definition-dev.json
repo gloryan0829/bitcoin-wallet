@@ -59,7 +59,7 @@
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "/ecs/bitcoin-wallet-server",
+          "awslogs-group": "/ecs/token-asset-bitcoin",
           "awslogs-region": "ap-northeast-2",
           "awslogs-stream-prefix": "ecs"
         }
