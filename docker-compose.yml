@@ -21,10 +21,8 @@ services:
       BLOCK_CYPHER_TOKEN: ${BLOCK_CYPHER_TOKEN}
     ports:
       - '${SERVER_PORT}:${SERVER_PORT}'
-    depends_on:
-      - mongo
 
-  mongo:
+  mongodb:
     container_name: 'token-asset-mongo'
     image: mongo:latest
     volumes:

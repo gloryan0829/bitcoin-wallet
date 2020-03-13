@@ -17,7 +17,7 @@ class DBManager {
     this.userId = userId;
     this.userPassword = userPassword;
     this.database = database;
-    this.dbUrl = `mongodb://${this.userId}:${this.userPassword}@${this.host}:${this.port}/${this.database}?authSource=admin`;
+    this.dbUrl = `mongodb://${this.userId}:${this.userPassword}@${this.host}:${this.port}/${this.database}`;
   }
 
   connect() {

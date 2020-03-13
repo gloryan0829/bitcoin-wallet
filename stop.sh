@@ -26,7 +26,7 @@ if [ "${P}" != "" ]; then
 fi
 }
 
-echo "For all Docker containers or images (not just Hyperledger Fabric and Composer)"
+echo "For all Docker containers or images"
 echo "1 - Kill and remove only the containers"
 echo "2 - Kill and remove the containers and remove all the downloaded images"
 echo "3 - Quit and not do anything"
